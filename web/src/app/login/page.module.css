@@ -1,0 +1,341 @@
+.shell {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  background: var(--color-bg-1);
+}
+
+.brandPane {
+  position: relative;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 32px 48px 28px;
+  color: var(--color-text-1);
+  background: var(--color-bg-1);
+}
+
+.brandPane::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.35;
+}
+
+.brandHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandMark {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #6366f1 0%, #5046e5 100%);
+}
+
+.brandName {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-1);
+}
+
+.badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  height: 34px;
+  margin-top: 22px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #059669;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.brandTitle {
+  position: relative;
+  z-index: 1;
+  margin: 24px 0 12px !important;
+  color: var(--color-text-1) !important;
+  font-size: clamp(42px, 4.9vw, 64px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.02em;
+}
+
+.brandDescription {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  margin: 0 !important;
+  color: var(--color-text-2) !important;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.featureList {
+  position: relative;
+  z-index: 1;
+  margin-top: 40px;
+  display: grid;
+  gap: 14px;
+  max-width: 460px;
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--glass-bg-subtle);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-2);
+}
+
+.formPane {
+  position: relative;
+  width: 40%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 32px 40px;
+  box-shadow: -20px 0 40px -10px rgba(0, 0, 0, 0.2);
+}
+
+.mobileBrand {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobileBrandName {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-1);
+}
+
+.formWrap {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 0;
+}
+
+.authCard {
+  width: 100%;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.authCard :global(.ant-card-body) {
+  padding: 0 !important;
+}
+
+.step {
+  width: 100%;
+  animation: slideInFromRight 240ms ease-out;
+}
+
+.titleBlock {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.formTitle {
+  margin: 0 0 6px !important;
+  color: var(--color-text-1);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.formDescription {
+  margin: 0;
+  color: var(--color-text-3);
+  font-size: 15px;
+}
+
+.notice {
+  margin-bottom: 10px;
+}
+
+.notice :global(.ant-alert-message) {
+  font-size: 13px;
+}
+
+.fieldLabel {
+  color: var(--color-text-2);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.fieldInput {
+  height: 40px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.fieldInput :global(.ant-input) {
+  font-size: 14px;
+}
+
+.fieldInput :global(.ant-input-prefix) {
+  margin-right: 8px;
+  color: var(--color-text-3);
+}
+
+.fieldInput:global(.ant-input-affix-wrapper) {
+  min-height: 40px;
+  height: 40px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.authCard :global(.ant-form-item) {
+  margin-bottom: 12px;
+}
+
+.authCard :global(.ant-form-item-label > label) {
+  min-height: 24px;
+}
+
+.authCard :global(.ant-form-item:last-child) {
+  margin-bottom: 0;
+}
+
+.roleSwitch {
+  margin-top: 2px;
+}
+
+.roleLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.submitButton {
+  height: 44px;
+  margin-top: 2px;
+  border: none !important;
+  border-radius: 8px;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+  background: linear-gradient(to right, #2563eb, #7c3aed) !important;
+  transition: all 0.2s ease;
+}
+
+.submitButton:hover {
+  background: linear-gradient(to right, #1d4ed8, #6d28d9) !important;
+  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+.bottomSingle {
+  margin-top: 14px;
+  text-align: right;
+  font-size: 13px;
+}
+
+.mutedText {
+  color: var(--color-text-3);
+}
+
+.linkText {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--color-link);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.linkText:hover {
+  color: var(--color-link-hover);
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 1280px) {
+  .brandTitle {
+    font-size: clamp(36px, 4vw, 52px) !important;
+  }
+
+  .brandDescription {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .brandPane {
+    display: none;
+  }
+
+  .formPane {
+    width: 100%;
+    padding: 24px 18px 18px;
+    box-shadow: none;
+  }
+
+  .mobileBrand {
+    display: inline-flex;
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .formWrap {
+    margin-top: 74px;
+    max-width: 640px;
+  }
+
+  .formTitle {
+    font-size: 30px;
+  }
+
+  .formDescription {
+    font-size: 16px;
+  }
+}

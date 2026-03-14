@@ -1,0 +1,67 @@
+from pydantic import BaseModel
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+class OllamaSettings(BaseModel):
+    """Ollama 本地 LLM 配置"""
+
+    base_url: str = "http://localhost:11434"
+    default_model: str = "qwen2.5:7b"
+    title_model: str = "qwen2.5:7b"
+    chat_base_url: str | None = None
+    chat_model: str | None = None
+    title_base_url: str | None = None
+
+    @property
+    def resolved_chat_base_url(self) -> str:
+        """聊天主链路使用的 Ollama 地址（优先 chat_base_url）。"""
+        return self.chat_base_url or self.base_url
+
+    @property
+    def resolved_chat_model(self) -> str:
+        """聊天主链路使用的模型（优先 chat_model）。"""
+        return self.chat_model or self.default_model
+
+    @property
+    def resolved_title_base_url(self) -> str:
+        """标题生成链路使用的 Ollama 地址（优先 title_base_url）。"""
+        return self.title_base_url or self.base_url
+
+    @property
+    def resolved_title_model(self) -> str:
+        """标题生成链路使用的模型（若未配置则回落到默认聊天模型）。"""
+        return self.title_model or self.resolved_chat_model
+
+
+class SupabaseSettings(BaseModel):
+    """Supabase Cloud 配置"""
+
+    url: str = ""
+    anon_key: str = ""
+    service_key: str = ""
+    jwt_secret: str = ""
+
+
+class DatabaseSettings(BaseModel):
+    """本地 SQLite 数据库配置（agno session 存储）"""
+
+    path: str = "./data/agno.db"
+
+
+class Settings(BaseSettings):
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        env_nested_delimiter="__",
+    )
+
+    debug: bool = False
+    host: str = "0.0.0.0"
+    port: int = 8100
+
+    ollama: OllamaSettings = OllamaSettings()
+    supabase: SupabaseSettings = SupabaseSettings()
+    database: DatabaseSettings = DatabaseSettings()
+
+
+settings = Settings()

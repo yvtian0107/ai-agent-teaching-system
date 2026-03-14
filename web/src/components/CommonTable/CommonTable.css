@@ -1,0 +1,125 @@
+/* ===================== CommonTable Component Styles ===================== */
+
+/* 主容器 - 填满父容器，使用 flex 布局 */
+.common-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0; /* 允许 flex 收缩 */
+}
+
+/* 表格内容区域 - 自适应高度 */
+.common-table-content {
+  flex: 1;
+  min-height: 0; /* 关键：允许 flex item 收缩 */
+  overflow: hidden;
+}
+
+/* 分页区域 - 固定在底部 */
+.common-table-pagination {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid var(--color-border, #f0f0f0);
+  background: var(--color-bg-1, #fff);
+}
+
+/* ===================== 空状态样式 ===================== */
+
+/* 空状态内容区域 - 简单的上下padding */
+.common-table-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.common-table-empty-icon {
+  font-size: 64px;
+  color: #d9d9d9;
+  margin-bottom: 16px;
+}
+
+.common-table-empty-title {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+  line-height: 22px;
+}
+
+/* 当表格为空时，移除 placeholder 的边框 */
+.common-table-wrapper.is-empty .ant-table-placeholder {
+  border-bottom: none !important;
+}
+
+.common-table-wrapper.is-empty .ant-table-placeholder .ant-table-cell {
+  border-bottom: none !important;
+}
+
+/* 空状态时禁用 hover 效果 */
+.common-table-wrapper.is-empty .ant-table-tbody > tr.ant-table-placeholder:hover > td {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ===================== 分页器样式增强 ===================== */
+
+/* 分页器整体样式 */
+.common-table-pagination .ant-pagination {
+  margin: 0;
+}
+
+/* 分页器 item 样式 */
+.common-table-pagination .ant-pagination-item {
+  border-radius: 6px;
+  border-color: var(--color-border, #d9d9d9);
+  transition: all 0.15s ease;
+}
+
+.common-table-pagination .ant-pagination-item:hover {
+  border-color: var(--color-primary, #5046e5);
+}
+
+.common-table-pagination .ant-pagination-item-active {
+  background: var(--color-primary, #5046e5);
+  border-color: var(--color-primary, #5046e5);
+}
+
+.common-table-pagination .ant-pagination-item-active a {
+  color: #fff;
+}
+
+/* 上一页/下一页按钮 */
+.common-table-pagination .ant-pagination-prev,
+.common-table-pagination .ant-pagination-next {
+  border-radius: 6px;
+}
+
+/* 每页条数选择器 */
+.common-table-pagination .ant-pagination-options {
+  margin-inline-start: 16px;
+}
+
+/* 总数显示 */
+.common-table-pagination .ant-pagination-total-text {
+  margin-inline-end: 16px;
+  color: var(--color-text-2, #666);
+  font-size: 13px;
+}
+
+/* ===================== Loading 状态优化 ===================== */
+
+.common-table-content .ant-spin-nested-loading {
+  height: 100%;
+}
+
+.common-table-content .ant-spin-container {
+  height: 100%;
+}
+
+/* 加载时保持表格高度 */
+.common-table-content .ant-spin-spinning + .ant-spin-container {
+  min-height: 200px;
+}

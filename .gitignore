@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Next.js
+.next/
+out/
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# Docker
+db_data/
+redis_data/
+storage/
+
+# Logs
+*.log
+logs/
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+.pytest_cache/
+
+# 参考项目（不上传）
+imitate_web/
+imitate_server/
+imitate_supabase/
+
+# Misc
+*.bak
+*.tmp
